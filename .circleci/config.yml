@@ -4,7 +4,7 @@ version: 2.1
 
 commands: 
   print_command:
-    descritpion: "A very simple command demostration"
+    description: "A very simple command demostration"
     parameters:
       to:
         type: string
