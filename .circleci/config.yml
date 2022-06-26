@@ -1,25 +1,12 @@
 version: 2.1
 jobs:
-  save_hello_world_output:
-    docker: 
-      - image: circleci/node:13.8.0 
-    steps:
-      - run:
-          name: "Save Input"
-          command: |
-            echo "This is Olufunbi" > ~/output.txt
-            return 1
-      - persist_to_workspace:
-          root: ~/
-          paths:
-            - output.txt
-
   fail_job:
     docker:
       - image: circleci/node:13.8.0
-    steps: 
-      - attach_workspace:
-          at: ~/
+    steps:
+      - run:
+          name: Fail Job
+          command: return 1
       - run:
           name: Output file
           command: echo "The build failed"
@@ -30,7 +17,4 @@ jobs:
 workflows:
   say-hello-workflow:
     jobs:
-      - save_hello_world_output
-      - fail_job:
-          requires:
-            - save_hello_world_output
+      - fail_job
