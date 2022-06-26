@@ -12,8 +12,7 @@ jobs:
       - run:
           name: "Save Input"
           command: |
-            cd ../
-            echo "This is Olufunbi" > output.txt
+            echo "This is Olufunbi" > ~/output.txt
       - persist_to_workspace:
           root: ~/
           paths:
